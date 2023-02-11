@@ -5,18 +5,14 @@ function terragruntPlan {
   # Debugging output
   if [ "${ACTION_STEP_DEBUG}" ]; then
 
-    echo $AZURE_FEDERATED_TOKEN_FILE
-
     df -h
 
+    # Azure login debugging output
+    echo $AZURE_FEDERATED_TOKEN_FILE
     cat $AZURE_FEDERATED_TOKEN_FILE
-
     ls -la $AZURE_FEDERATED_TOKEN_FILE
-
     ls -la $KUBECONFIG_PATH
-
     cat $KUBECONFIG_PATH
-
     export KUBECONFIG=$KUBECONFIG_PATH
 
     # Running this command in the debug gives us a lot more information than 
