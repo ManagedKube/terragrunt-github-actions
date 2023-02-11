@@ -2,21 +2,24 @@
 
 function terragruntPlan {
 
-  echo $AZURE_FEDERATED_TOKEN_FILE
+  if [ "$ACTION_STEP_DEBUG" ]; then
 
-  df -h
+    echo $AZURE_FEDERATED_TOKEN_FILE
 
-  cat $AZURE_FEDERATED_TOKEN_FILE
+    df -h
 
-  ls -la $AZURE_FEDERATED_TOKEN_FILE
+    cat $AZURE_FEDERATED_TOKEN_FILE
 
-  ls -la $KUBECONFIG_PATH
+    ls -la $AZURE_FEDERATED_TOKEN_FILE
 
-  cat $KUBECONFIG_PATH
+    ls -la $KUBECONFIG_PATH
 
-  export KUBECONFIG=$KUBECONFIG_PATH
+    cat $KUBECONFIG_PATH
 
-  kubectl get nodes
+    export KUBECONFIG=$KUBECONFIG_PATH
+
+    kubectl get nodes
+  fi
 
   # Gather the output of `terragrunt plan`.
   echo "plan: info: planning Terragrunt configuration in ${tfWorkingDir}"
