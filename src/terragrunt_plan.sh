@@ -19,6 +19,9 @@ function terragruntPlan {
 
     export KUBECONFIG=$KUBECONFIG_PATH
 
+    # Running this command in the debug gives us a lot more information than 
+    # terraform would if authentication fails.  This is usef for those types
+    # of situations.
     kubectl get nodes
   fi
 
