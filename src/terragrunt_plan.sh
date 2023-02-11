@@ -2,7 +2,7 @@
 
 function terragruntPlan {
 
-  envar
+  echo $AZURE_FEDERATED_TOKEN_FILE
 
   df -h
 
