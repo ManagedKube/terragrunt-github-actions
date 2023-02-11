@@ -10,6 +10,11 @@ RUN unzip kubelogin-linux-amd64.zip
 RUN cp bin/linux_amd64/kubelogin /usr/local/bin/
 RUN rm -rf bin
 
+# Install kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+RUN chmod 755 kubectl
+RUN mv kubectl /usr/local/bin/
+
 WORKDIR /
 
 COPY ["src", "/src/"]
