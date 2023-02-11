@@ -2,7 +2,7 @@
 
 function terragruntPlan {
 
-  if [ "$ACTION_STEP_DEBUG" ]; then
+  if [ "${ACTION_STEP_DEBUG}" ]; then
 
     echo $AZURE_FEDERATED_TOKEN_FILE
 
