@@ -1,6 +1,11 @@
 #!/bin/bash
 
 function terragruntPlan {
+
+  envar
+
+  df -h
+
   # Gather the output of `terragrunt plan`.
   echo "plan: info: planning Terragrunt configuration in ${tfWorkingDir}"
   planOutput=$(${tfBinary} plan -detailed-exitcode -input=false ${*} 2>&1)
