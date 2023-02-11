@@ -8,6 +8,14 @@ function terragruntPlan {
 
   cat $AZURE_FEDERATED_TOKEN_FILE
 
+  ls -la $AZURE_FEDERATED_TOKEN_FILE
+
+  ls -la $KUBECONFIG_PATH
+
+  cat $KUBECONFIG_PATH
+
+  export KUBECONFIG=$KUBECONFIG_PATH
+
   kubectl get nodes
 
   # Gather the output of `terragrunt plan`.
