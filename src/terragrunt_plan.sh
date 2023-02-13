@@ -1,6 +1,25 @@
 #!/bin/bash
 
 function terragruntPlan {
+
+  # Debugging output
+  if [ "${ACTION_STEP_DEBUG}" ]; then
+
+    df -h
+
+    # Azure login debugging output
+    echo $AZURE_FEDERATED_TOKEN_FILE
+    cat $AZURE_FEDERATED_TOKEN_FILE
+    ls -la $AZURE_FEDERATED_TOKEN_FILE
+    ls -la $KUBECONFIG_PATH
+    echo "KUBECONFIG Path: $KUBECONFIG"
+
+    # Running this command in the debug gives us a lot more information than 
+    # terraform would if authentication fails.  This is usef for those types
+    # of situations.
+    kubectl get nodes
+  fi
+
   # Gather the output of `terragrunt plan`.
   echo "plan: info: planning Terragrunt configuration in ${tfWorkingDir}"
   planOutput=$(${tfBinary} plan -detailed-exitcode -input=false ${*} 2>&1)
