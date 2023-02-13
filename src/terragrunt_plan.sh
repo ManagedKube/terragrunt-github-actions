@@ -12,8 +12,7 @@ function terragruntPlan {
     cat $AZURE_FEDERATED_TOKEN_FILE
     ls -la $AZURE_FEDERATED_TOKEN_FILE
     ls -la $KUBECONFIG_PATH
-    cat $KUBECONFIG_PATH
-    export KUBECONFIG=$KUBECONFIG_PATH
+    echo "KUBECONFIG Path: $KUBECONFIG"
 
     # Running this command in the debug gives us a lot more information than 
     # terraform would if authentication fails.  This is usef for those types
